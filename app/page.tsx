@@ -1,5 +1,6 @@
 import Image from "next/image";
 import localFont from "next/font/local";
+import LoginButton from "./_components/loginButton";
 
 const myFont = localFont({ src: "../public/Aclonica.ttf" });
 
@@ -19,7 +20,7 @@ export default function Page() {
         <p className="text-lg md:text-xl font-medium">
           Your finances, finally simplified
         </p>
-        <button className="text-sm md:text-md underline">Coming Soon</button>
+        <LoginButton />
       </section>
     </main>
   );
