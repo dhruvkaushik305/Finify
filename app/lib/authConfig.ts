@@ -12,6 +12,11 @@ export const authConfig = {
       },
     }),
   ],
+  callbacks: {
+    redirect: async (data: any) => {
+      return "/dashboard";
+    },
+  },
   pages: {
     signIn: "/login",
   },

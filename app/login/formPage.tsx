@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { loginInputs, loginSchema } from "../lib/definitions";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 
 export default function Form() {
   const {
@@ -12,7 +13,7 @@ export default function Form() {
     resolver: zodResolver(loginSchema),
   });
   const onSubmit = (data: loginInputs) => {
-    console.log(data);
+    signIn("credentials", { email: data.email, password: data.password });
   };
   return (
     <form
