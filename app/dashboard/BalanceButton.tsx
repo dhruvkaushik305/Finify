@@ -8,7 +8,7 @@ export default function BalanceButton() {
     return user.balance;
   };
   return (
-    <div className="self-end">
+    <div className="self-end text-sm">
       {show ? (
         <p onClick={() => setShow(false)}>
           Available Balance: &#8377;{fetchBalance()}

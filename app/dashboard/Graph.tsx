@@ -8,14 +8,15 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import React from "react";
 import { expenditure } from "../lib/data";
 
-export default function Graph() {
+function Graph() {
   return (
-    <ResponsiveContainer width="100%" height={500} className="h-full">
+    <ResponsiveContainer width="100%" height={400} className="h-full">
       <LineChart data={expenditure}>
-        <Line type="monotone" dataKey="amount" stroke="#8884d8" />
-        <CartesianGrid stroke="#ccc" strokeDasharray="4" />
+        <Line type="monotone" dataKey="amount" stroke="#0023FF" />
+        <CartesianGrid stroke="#ccc" strokeDasharray="7" />
         <XAxis dataKey="day" />
         <YAxis />
         <Tooltip animationDuration={500} />
@@ -23,3 +24,5 @@ export default function Graph() {
     </ResponsiveContainer>
   );
 }
+
+export default React.memo(Graph);
