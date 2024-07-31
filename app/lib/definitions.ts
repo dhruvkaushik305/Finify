@@ -15,3 +15,10 @@ export type User = {
   spent: number;
   budget: number;
 };
+
+export type Expense = {
+  id: string;
+  day: string;
+  amount: number;
+  date: string;
+};
