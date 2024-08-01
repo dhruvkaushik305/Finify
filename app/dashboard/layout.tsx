@@ -2,6 +2,7 @@ import { IoCreateOutline } from "react-icons/io5";
 import { user } from "../lib/data";
 import Link from "next/link";
 import { GoHistory, GoHomeFill } from "react-icons/go";
+import EntryModal from "./EntryModal";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <nav className="min-h-[4rem] flex justify-around items-center bg-white">
         <header className="text-3xl font-semibold">Finify</header>
         <div className="flex gap-5 items-center">
-          <IoCreateOutline size={23} />
+          <EntryModal />
           <div className="bg-gray-200 h-10 flex justify-center items-center w-10 rounded-full">
             {user.name[0][0].toUpperCase()}
           </div>
