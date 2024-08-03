@@ -14,6 +14,7 @@ export type User = {
   balance: number;
   spent: number;
   budget: number;
+  password: string;
 };
 
 export type Expense = {
