@@ -1,24 +1,17 @@
-import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import prisma from "@/prisma/db";
+
 export const authConfig = {
+  adapter: PrismaAdapter(prisma),
   providers: [
-    CredentialsProvider({
-      name: "credentials",
-      credentials: {
-        email: { type: "text" },
-        password: { type: "password" },
-      },
-      async authorize(credentials: any) {
-        return { id: "1", email: credentials!.email };
-      },
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-  callbacks: {
-    redirect: async (data: any) => {
-      return "/dashboard";
-    },
-  },
   pages: {
     signIn: "/login",
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.JWT_SECRET!,
 };

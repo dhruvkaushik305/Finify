@@ -5,9 +5,9 @@ export default function LoginButton() {
   return (
     <button
       className="px-3 py-2 bg-black text-white rounded-xl"
-      onClick={() => signIn()}
+      onClick={() => signIn("google")}
     >
-      Log in
+      Log in with Google
     </button>
   );
 }

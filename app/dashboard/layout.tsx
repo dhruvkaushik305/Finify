@@ -1,8 +1,8 @@
-import { IoMenuOutline } from "react-icons/io5";
 import { user } from "../lib/data";
 import EntryModal from "./EntryModal";
 import NavItems from "./NavItems";
 import HamburgerMenu from "./HamburgerMenu";
+import LogoutButton from "../_components/LogoutButton";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -22,6 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <section className="flex grow h-full">
         <div className="hidden lg:block">
           <NavItems />
+          <LogoutButton />
         </div>
         {children}
       </section>
