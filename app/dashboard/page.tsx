@@ -1,8 +1,12 @@
+import { getServerSession } from "next-auth";
 import { user } from "../lib/data";
 import BalanceButton from "./BalanceButton";
 import Graph from "./Graph";
+import { authConfig } from "../lib/authConfig";
 
 export default async function Page() {
+  const userInfo = getServerSession(authConfig);
+  console.log("the user info is", userInfo);
   const budget = user.budget;
   const spent = user.spent;
   const percentageSpent = Math.round((spent / budget) * 100);

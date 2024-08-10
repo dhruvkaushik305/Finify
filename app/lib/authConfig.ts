@@ -13,5 +13,15 @@ export const authConfig = {
   pages: {
     signIn: "/login",
   },
+
+  callbacks: {
+    redirect: async ({ url, baseUrl }: any) => {
+      if (url.startsWith(baseUrl)) {
+        return Promise.resolve("/dashboard");
+      }
+      return Promise.resolve(url);
+    },
+  },
+
   secret: process.env.JWT_SECRET!,
 };
