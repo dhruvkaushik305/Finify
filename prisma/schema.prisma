@@ -12,7 +12,7 @@ model Account {
   userId             String
   providerType       String
   providerId         String
-  providerAccountId  String
+  providerAccountId  String    @map("provider_account_id")
   refreshToken       String?
   accessToken        String?
   accessTokenExpires DateTime?
