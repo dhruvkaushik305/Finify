@@ -1,11 +1,10 @@
-import { getServerSession } from "next-auth";
+import { auth } from "@/auth";
 import { user } from "../lib/data";
 import BalanceButton from "./BalanceButton";
 import Graph from "./Graph";
-import { authConfig } from "../lib/authConfig";
 
 export default async function Page() {
-  const userInfo = getServerSession(authConfig);
+  const userInfo = await auth();
   console.log("the user info is", userInfo);
   const budget = user.budget;
   const spent = user.spent;

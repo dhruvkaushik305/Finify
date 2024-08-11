@@ -1,6 +1,6 @@
 import Image from "next/image";
 import localFont from "next/font/local";
-import LoginButton from "./_components/loginButton";
+import { signIn } from "@/auth";
 
 const myFont = localFont({ src: "../public/Aclonica.ttf" });
 
@@ -20,7 +20,14 @@ export default function Page() {
         <p className="text-lg md:text-xl font-medium">
           Your finances, finally simplified
         </p>
-        <LoginButton />
+        <form
+          action={async () => {
+            "use server";
+            await signIn("google");
+          }}
+        >
+          <button type="submit">Signin with Google</button>
+        </form>
       </section>
     </main>
   );
