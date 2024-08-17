@@ -1,33 +1,20 @@
 import Image from "next/image";
-import localFont from "next/font/local";
-import { signIn } from "@/auth";
-
-const myFont = localFont({ src: "../public/Aclonica.ttf" });
-
+import LoginButton from "./_components/LoginButton";
 export default function Page() {
   return (
     <main className="flex justify-center items-center min-h-screen bg-zinc-100">
-      <section
-        className={`flex items-center flex-col gap-3 ${myFont.className}`}
-      >
+      <section className={"flex items-center flex-col gap-5"}>
         <Image
-          src="/logo.svg"
+          src="/logo.png"
           alt="Finify Logo"
-          height={200}
-          width={200}
+          width={300}
+          height={300}
           priority={true}
         />
-        <p className="text-lg md:text-xl font-medium">
+        <p className="text-lg md:text-2xl font-semibold">
           Your finances, finally simplified
         </p>
-        <form
-          action={async () => {
-            "use server";
-            await signIn("google");
-          }}
-        >
-          <button type="submit">Signin with Google</button>
-        </form>
+        <LoginButton />
       </section>
     </main>
   );

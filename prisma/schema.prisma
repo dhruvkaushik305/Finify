@@ -92,7 +92,7 @@ model Expense {
   id          String      @id @default(uuid())
   amount      Int
   type        ExpenseType
-  date        DateTime
+  date        DateTime    @default(now())
   StatementId String
   Statement   Statement   @relation(fields: [StatementId], references: [id])
 }

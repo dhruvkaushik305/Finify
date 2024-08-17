@@ -20,7 +20,7 @@ export default function HamburgerMenu() {
         />
       )}
       {isOpen && (
-        <div className="absolute top-[4rem] left-0 bg-white w-full lg:hidden h-screen">
+        <div className="absolute top-[4rem] left-0 bg-white w-full lg:hidden h-screen z-50">
           <div className="h-fit">
             <NavItems />
           </div>
